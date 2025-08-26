@@ -14,7 +14,7 @@
   <meta name="theme-color" content="#f9fafb" />
   <link rel="icon" href="/favicon.ico" />
   <style>
-    :root{--bg:#f9fafb;--card:#ffffff;--muted:#6b7280;--brand:#4f46e5;--brand2:#10b981;--text:#111827;--text2:#374151;--kakao:#ffdb69;--call:#cee397}
+    :root{--bg:#f9fafb;--card:#f9fafb;--muted:#6b7280;--brand:#4f46e5;--brand2:#10b981;--text:#111827;--text2:#374151;--kakao:#ffdb69;--call:#cee397}
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:var(--text);background:linear-gradient(180deg,#f9fafb 0%,#f3f4f6 100%)}
     a{color:inherit;text-decoration:none}
@@ -30,20 +30,20 @@
     .btn.brand{background:linear-gradient(135deg,var(--brand),#6366f1);border:0;color:white}
     .btn.kakao{background:var(--kakao);border:0;color:#111827;font-weight:600}
     .btn.call{background:var(--call);border:0;color:#111827;font-weight:600}
+    .btn.outline{background:transparent;border-color:rgba(0,0,0,.2)}
 
     .hero{padding:56px 0}
     .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
     .headline{font-size:clamp(26px,4vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.5px}
     .sub{font-size:16px;color:var(--text2);margin-top:12px}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(0,0,0,.08);border-radius:999px;color:#1d4ed8;background:rgba(59,130,246,.08);font-size:12px;margin-bottom:16px}
-    .card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:16px;padding:18px;text-align:center}
+    .card{background:var(--card);border:none;box-shadow:none;border-radius:16px;padding:18px;text-align:center}
     .card img{max-width:100%;border-radius:12px;height:auto}
 
     .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
-    /* 데스크톱: 샘플(좌) + 감성문구(우) 나란히 */
-    .sample-and-text{display:flex;gap:24px;align-items:stretch}
-    .sample-and-text>.container{flex:1}
     .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px}
+
+    .ph{aspect-ratio:1/1;border-radius:12px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:13px;border:1px dashed rgba(0,0,0,.12)}
 
     .section{padding:34px 0}
     .section h2{font-size:22px;margin:0 0 14px 0}
@@ -67,22 +67,8 @@
     footer{padding:40px 0;color:var(--muted);font-size:13px}
     .legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 
-    @media (max-width:880px){
-      .hero .wrap{grid-template-columns:1fr}
-    @media (max-width:560px){
-      /* 모바일: 샘플 → 감성문구 → 제작과정 */
-      .sample-and-text{display:block}
-      .sample-and-text>.container{margin-bottom:16px}
-      .gallery{grid-template-columns:1fr 1fr}
-      .steps{grid-template-columns:1fr}
-      .cta-bar .inner{justify-content:center;flex-wrap:wrap}
-    }
-      .gallery{grid-template-columns:1fr}
-      .cta-bar .inner{justify-content:center;flex-wrap:wrap}
-      /* 모바일에서 샘플 먼저 → 감성 문구 → 제작과정 순서 */
-      .sample-and-text{display:block}
-      .sample-and-text>.container{margin-bottom:20px}
-    }
+    @media (max-width:880px){.hero .wrap{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.reviews{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.steps{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
@@ -94,7 +80,7 @@
         JS현수막 <span class="badge">공식 페이지</span>
       </div>
       <div class="cta">
-        <a class="btn brand" href="https://smartstore.naver.com/creativejs" target="_blank" rel="noopener">네이버 스토어 바로가기</a>
+        <a class="btn brand" href="https://smartstore.naver.com/creativejs" target="_blank" rel="noopener" aria-label="네이버 스토어로 이동">네이버 스토어 바로가기</a>
       </div>
     </div>
   </header>
@@ -107,6 +93,7 @@
         <h1 class="headline">그날의 감동, <span style="color:#4f46e5">JS현수막</span>이 완성합니다</h1>
         <p class="sub">사진만 보내주세요. 빠른 시안 확인 → 당일 출력 → 안전 포장 배송까지 한 번에.
           네이버 스토어에서 <b>안전 결제</b>로 편하게 주문하세요.</p>
+        
       </div>
       <div class="card shadow">
         <h3 style="margin:0 0 10px;font-size:20px;color:#ef4444">특별함이 있는<br>고퀄리티 현수막</h3>
@@ -116,26 +103,28 @@
   </section>
 
   <!-- 샘플 사진 + 감성 문구 -->
-  <section class="section sample-and-text">
-    <div class="container">
-      <h2 id="gallery">샘플 이미지</h2>
-      <div class="gallery">
-        <img src="sample1.jpg" alt="샘플 현수막 1">
-        <img src="sample2.jpg" alt="샘플 현수막 2">
-        <img src="sample3.jpg" alt="샘플 현수막 3">
-        <img src="sample4.jpg" alt="샘플 현수막 4">
-        <img src="sample5.jpg" alt="샘플 현수막 5">
-        <img src="sample6.jpg" alt="샘플 현수막 6">
+  <section class="section">
+    <div class="container" style="display:flex;gap:24px;align-items:stretch">
+      <div style="flex:1">
+        <h2 id="gallery">샘플 이미지</h2>
+        <div class="gallery">
+          <img src="sample1.jpg" alt="샘플 현수막 1">
+          <img src="sample2.jpg" alt="샘플 현수막 2">
+          <img src="sample3.jpg" alt="샘플 현수막 3">
+          <img src="sample4.jpg" alt="샘플 현수막 4">
+          <img src="sample5.jpg" alt="샘플 현수막 5">
+          <img src="sample6.jpg" alt="샘플 현수막 6">
+        </div>
       </div>
-    </div>
-    <div class="container">
-      <h2>자주 찾는 <span style="color:#10b981">감성 문구</span></h2>
-      <div class="list">
-        <div class="li">그냥 지나칠 순 없지</div>
-        <div class="li">60번째 생신을 축하드립니다.</div>
-        <div class="li">당신은 언제나 우리의 자랑입니다.</div>
-        <div class="li">70년의 세월을 존경하고 사랑합니다.</div>
-        <div class="li">인생은 70부터 이제 꽃길만 걸으세요.</div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-start">
+        <h2>자주 찾는 <span style=\"color:#10b981\">감성 문구</span></h2>
+        <div class="list" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div class="li">그냥 지나칠 순 없지</div>
+          <div class="li">60번째 생신을 축하드립니다.</div>
+          <div class="li">당신은 언제나 우리의 자랑입니다.</div>
+          <div class="li">70년의 세월을 존경하고 사랑합니다.</div>
+          <div class="li">인생은 70부터 이제 꽃길만 걸으세요.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -150,6 +139,7 @@
         <div class="step"><b>3. 시안 확인</b> 시안 승인 후 바로 출력</div>
         <div class="step"><b>4. 발송</b> 안전 포장 후 신속 배송</div>
       </div>
+      
     </div>
   </section>
 
