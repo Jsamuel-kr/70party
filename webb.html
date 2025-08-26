@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JS현수막 | 칠순·환갑·퇴임 맞춤 현수막 – 네이버 스토어 연결</title>
+  <meta name="description" content="JS현수막 공식 랜딩페이지. 칠순·환갑·생신·퇴임 맞춤 현수막 제작. 빠른 시안, 당일 출력, 네이버 스토어에서 안전 결제." />
+  <meta name="format-detection" content="telephone=no" />
+  <meta property="og:title" content="JS현수막" />
+  <meta property="og:description" content="특별한 날, 감동을 채우는 맞춤 현수막" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#f9fafb" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{--bg:#f9fafb;--card:#f9fafb;--muted:#6b7280;--brand:#4f46e5;--brand2:#10b981;--text:#111827;--text2:#374151;--kakao:#ffdb69;--call:#cee397}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Pretendard,Apple SD Gothic Neo,Noto Sans KR,sans-serif;color:var(--text);background:linear-gradient(180deg,#f9fafb 0%,#f3f4f6 100%)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1060px;margin:0 auto;padding:24px}
+    .shadow{box-shadow:0 10px 40px rgba(0,0,0,.08)}
+    header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(8px);background:rgba(255,255,255,.85);z-index:20;border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{display:flex;align-items:center;gap:16px;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
+    .logo .badge{font-size:12px;color:#4338ca;background:rgba(99,102,241,.12);padding:4px 8px;border-radius:999px;border:1px solid rgba(99,102,241,.25)}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px solid rgba(0,0,0,.08);transition:.2s;background:#ffffff;color:var(--text)}
+    .btn:hover{transform:translateY(-1px);border-color:rgba(0,0,0,.2)}
+    .btn.brand{background:linear-gradient(135deg,var(--brand),#6366f1);border:0;color:white}
+    .btn.kakao{background:var(--kakao);border:0;color:#111827;font-weight:600}
+    .btn.call{background:var(--call);border:0;color:#111827;font-weight:600}
+    .btn.outline{background:transparent;border-color:rgba(0,0,0,.2)}
+
+    .hero{padding:56px 0}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:26px;align-items:center}
+    .headline{font-size:clamp(26px,4vw,44px);line-height:1.15;font-weight:800;letter-spacing:-.5px}
+    .sub{font-size:16px;color:var(--text2);margin-top:12px}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(0,0,0,.08);border-radius:999px;color:#1d4ed8;background:rgba(59,130,246,.08);font-size:12px;margin-bottom:16px}
+    .card{background:var(--card);border:none;box-shadow:none;border-radius:16px;padding:18px;text-align:center}
+    .card img{max-width:100%;border-radius:12px;height:auto}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .gallery img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px}
+
+    .ph{aspect-ratio:1/1;border-radius:12px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;color:#6b7280;font-size:13px;border:1px dashed rgba(0,0,0,.12)}
+
+    .section{padding:34px 0}
+    .section h2{font-size:22px;margin:0 0 14px 0}
+    .list{display:grid;gap:10px}
+    .list .li{padding:14px;border-radius:12px;background:#ffffff;border:1px solid rgba(0,0,0,.06)}
+
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .step{padding:16px;border-radius:14px;background:#ffffff;border:1px solid rgba(0,0,0,.06)}
+    .step b{display:block;margin-bottom:6px}
+
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .review{padding:16px;border-radius:14px;background:#ffffff;border:1px solid rgba(0,0,0,.06);color:#374151}
+
+    .faq{display:grid;gap:10px}
+    details{background:#ffffff;border:1px solid rgba(0,0,0,.06);padding:14px;border-radius:12px}
+    summary{cursor:pointer;font-weight:600}
+
+    .cta-bar{position:sticky;bottom:0;background:linear-gradient(180deg,rgba(249,250,251,.0),rgba(249,250,251,.95) 30%);backdrop-filter:saturate(140%) blur(6px);border-top:1px solid rgba(0,0,0,.06);padding:12px}
+    .cta-bar .inner{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+    footer{padding:40px 0;color:var(--muted);font-size:13px}
+    .legal{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+
+    @media (max-width:880px){.hero .wrap{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.reviews{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.steps{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12a8 8 0 1 1 16 0v6.5a1.5 1.5 0 0 1-3 0V12a5 5 0 1 0-10 0v6.5a1.5 1.5 0 0 1-3 0V12Z" fill="#6366f1"/><circle cx="12" cy="12" r="2.5" fill="#10b981"/></svg>
+        JS현수막 <span class="badge">공식 페이지</span>
+      </div>
+      <div class="cta">
+        <a class="btn brand" href="https://smartstore.naver.com/creativejs" target="_blank" rel="noopener" aria-label="네이버 스토어로 이동">네이버 스토어 바로가기</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <div class="pill">칠순·환갑·퇴임·생신 맞춤 디자인</div>
+        <h1 class="headline">그날의 감동, <span style="color:#4f46e5">JS현수막</span>이 완성합니다</h1>
+        <p class="sub">사진만 보내주세요. 빠른 시안 확인 → 당일 출력 → 안전 포장 배송까지 한 번에.
+          네이버 스토어에서 <b>안전 결제</b>로 편하게 주문하세요.</p>
+        
+      </div>
+      <div class="card shadow">
+        <h3 style="margin:0 0 10px;font-size:20px;color:#ef4444">특별함이 있는<br>고퀄리티 현수막</h3>
+        <img src="JS현수막사장님.png" alt="JS현수막 사장님" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 샘플 사진 + 감성 문구 -->
+  <section class="section">
+    <div class="container" style="display:flex;gap:24px;align-items:stretch">
+      <div style="flex:1">
+        <h2 id="gallery">샘플 이미지</h2>
+        <div class="gallery">
+          <img src="sample1.jpg" alt="샘플 현수막 1">
+          <img src="sample2.jpg" alt="샘플 현수막 2">
+          <img src="sample3.jpg" alt="샘플 현수막 3">
+          <img src="sample4.jpg" alt="샘플 현수막 4">
+          <img src="sample5.jpg" alt="샘플 현수막 5">
+          <img src="sample6.jpg" alt="샘플 현수막 6">
+        </div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-start">
+        <h2>자주 찾는 <span style=\"color:#10b981\">감성 문구</span></h2>
+        <div class="list" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+          <div class="li">그냥 지나칠 순 없지</div>
+          <div class="li">60번째 생신을 축하드립니다.</div>
+          <div class="li">당신은 언제나 우리의 자랑입니다.</div>
+          <div class="li">70년의 세월을 존경하고 사랑합니다.</div>
+          <div class="li">인생은 70부터 이제 꽃길만 걸으세요.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="section" id="process">
+    <div class="container">
+      <h2>제작 과정은 간단해요</h2>
+      <div class="steps">
+        <div class="step"><b>1. 주문</b> 네이버 스토어에서 옵션 선택 후 주문</div>
+        <div class="step"><b>2. 사진 전송</b> 톡/이메일로 원본 사진 전달</div>
+        <div class="step"><b>3. 시안 확인</b> 시안 승인 후 바로 출력</div>
+        <div class="step"><b>4. 발송</b> 안전 포장 후 신속 배송</div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 왜 JS현수막 -->
+  <section class="section">
+    <div class="container">
+      <h2>왜 <span style="color:#4f46e5">JS현수막</span>일까요?</h2>
+      <div class="list">
+        <div class="li">빠른 시안 전달 · 일정에 맞춘 출력/발송</div>
+        <div class="li">사진 보정·색감 보정 기본 제공</div>
+        <div class="li">고해상도 장비로 선명한 출력 품질</div>
+        <div class="li">안전 포장 · 검수 후 발송 (파손 최소화)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="section">
+    <div class="container">
+      <h2>리뷰로 증명되는 만족도</h2>
+      <div class="reviews">
+        <div class="review">사진을 어떻게 써야 할지 고민했는데, 친절히 안내해 주셔서 예쁘게 나왔어요. 부모님이 정말 좋아하셨어요!</div>
+        <div class="review">시안 전달도 빠르고, 당일 출력이라 일정 맞추기 수월했습니다. 포장도 꼼꼼해요.</div>
+        <div class="review">현수막 앞에서 가족사진 대박났습니다 :) 다음에도 JS현수막으로!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container faq">
+      <h2>자주 묻는 질문</h2>
+      <details>
+        <summary>사진은 어떤 게 좋나요?</summary>
+        <p>가까이서 찍은, 밝고 환한 표정의 사진이 가장 잘 어울립니다. 원본 화질 그대로 보내주시면 보정 후 적용해 드립니다.</p>
+      </details>
+      <details>
+        <summary>시안 확인은 어떻게 하나요?</summary>
+        <p>카카오톡/문자로 시안을 전달드리고, 승인 후 바로 출력합니다. 일정이 급하신 경우 미리 알려주세요.</p>
+      </details>
+      <details>
+        <summary>당일 출력 가능한가요?</summary>
+        <p>오전 승인분 기준 당일 출력·발송이 가능합니다. (상황에 따라 달라질 수 있어 사전 문의 권장)</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CTA bar -->
+  <div class="cta-bar">
+    <div class="inner">
+      <a class="btn brand" href="https://smartstore.naver.com/creativejs" target="_blank" rel="noopener">네이버 스토어 바로가기</a>
+      <a class="btn kakao" href="https://pf.kakao.com/_DfUmG/chat" target="_blank" rel="noopener">카카오 상담</a>
+      <a class="btn call" href="tel:01081867041">전화문의</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="legal">
+        <span>상호: 크리에이티브JS</span>
+        <span>·</span>
+        <span>브랜드: JS현수막</span>
+        <span>·</span>
+        <span><a href="https://smartstore.naver.com/creativejs" target="_blank" rel="noopener">네이버 스토어</a></span>
+      </div>
+      <div style="margin-top:6px">고객센터: <a href="tel:01081867041">010-8186-7041</a> / 카카오톡 채널: <a href="https://pf.kakao.com/_DfUmG/chat" target="_blank" rel="noopener">@JS현수막</a></div>
+      <div style="margin-top:8px;color:#64748b">© <span id="y"></span> JS현수막. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
